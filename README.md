@@ -92,13 +92,14 @@ For simulations "program_services" (Step 5):
                     Datacenter 0 (mix of services SAAS && FAAS) being the cheapest and
                     Datacenter 2 (for IAAS) being the costliest.
                     
-Analysis for program_1 and program_2:cost evaluated from 4 simulations with the existing config file, 
-
+Output for program_1 and program_2: Cost evaluated from 4 simulations with the existing config file, 
+========================================================================
 * total cost for program_1_spaceshared ( brokerpolicy1 ): Total cost: 882.9199999999985 wastage 17.0  delay 0.0
 * total cost for program_1_timeshared  ( brokerpolicy1 ): Total cost: 1076.210000000003 wastage 17.0 delay 0.0
 * total cost for program_2_spaceshared  ( brokerpolicy2 ): Total cost: 957.5999999999981 wastage 18.0 delay 4.0
 * total cost for program_2_timeshared  ( brokerpolicy2 ):  Total cost: 1075.342800000003 wastage 18.0 delay 4.0            
-
+=========================================================================
+Analysis for program_1 and program_2:
 * Time shared vs Space shared : From the above 4 simulations, space shared from both the policies turns out to be the cheaper one.
                                 As with the space shared scheduler, cloudlets won't be held for longer times (no concurrency) when there 
                                 are less VMs to execute.
@@ -109,7 +110,7 @@ Analysis for program_1 and program_2:cost evaluated from 4 simulations with the 
                         policy 2, reducer's slots fill up only if mappers get executed on same host which is why policy 1
                         is cheaper compared to policy 2.
 
-*Network Topology: Brite Network Topology is been used in our simulations, with the increase in latency, cost goes up
+* Network Topology: Brite Network Topology is been used in our simulations, with the increase in latency, cost goes up
                    as cloudlet exec time increases.
                    
 Analysis for program_services : 
