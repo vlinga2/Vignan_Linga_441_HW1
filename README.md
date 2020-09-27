@@ -51,38 +51,30 @@ Implemented Policies :
 
 Two broker policies which differ by cloudlets(Mapper,Reeducer) execution. policies are as follows:
 
-*brokerPolicy1 : * setMappers(),setReducers() - Receives mappers,Reducers but submits only mappers for execution, holds reducers.
-                 * MAP_RED_RATIO a constant ratio which defines no.of mappers that must be allocated to a reducer.
-                 * doMapRedAllocation()       - based on this ratio, mappers are allocated to random reducer before start of the simulation.
-                                                if less no. of mappers are allocated to a reducer than the MAP_RED_RATIO, 
-                                                then it involves a little RESOURCE WASTAGE COST which will be added to the reducer after it's execution.
-                 * setMapperFinishListener()  - adds on finish listener to all the mappers so that it's corresponding reducer will be
-                                                submitted to the broker iff it's associated mappers are done.
-                 -> In short, Mapper to Redcuer allocation will be done based on the ratio and reducer starts executing iff all of it's                                
+*brokerPolicy1 : 
+* setMappers(),setReducers() - Receives mappers,Reducers but submits only mappers for execution, holds reducers.
+* MAP_RED_RATIO a constant ratio which defines no.of mappers that must be allocated to a reducer.
+* doMapRedAllocation()       - based on this ratio, mappers are allocated to random reducer before start of the simulation.if less no. of mappers are allocated to a reducer than the MAP_RED_RATIO,then it involves a little RESOURCE WASTAGE COST which will be added to the reducer after it's execution.
+* setMapperFinishListener()  - adds on finish listener to all the mappers so that it's corresponding reducer will be submitted to the broker iff it's associated mappers are done. -> In short, Mapper to Redcuer allocation will be done based on the ratio and reducer starts executing iff all of it's                                
                     associated mappers are done executing.
                     
-*brokerPolicy2 : * setMappers(),setReducers() - Receives mappers,Reducers but submits only mappers for execution, holds reducers.
-                 * processEvent() - overrided superclass DatacenterBroker's method to know about cloudlet processing stage.
-                                    a reducer will be submitted if (MAP_RED_RATIO) no. of mappers finish executing in the same host.
-                                    if all mappers got finished, there might be few reducers left as corresponding mappers
-                                    were executed on different hosts. In that case a slight DELAY to those mappers will be added.
-                 -> In short, each time if a host executes MAP_RED_RATIO no. of mappers, a reducer will be submitted to broker. 
+*brokerPolicy2 : 
+* setMappers(),setReducers() - Receives mappers,Reducers but submits only mappers for execution, holds reducers.
+* processEvent() - overrided superclass DatacenterBroker's method to know about cloudlet processing stage. a reducer will be submitted if (MAP_RED_RATIO) no. of mappers finish executing in the same host. if all mappers got finished, there might be few reducers left as corresponding mappers were executed on different hosts. In that case a slight DELAY to those mappers will be added.-> In short, each time if a host executes MAP_RED_RATIO no. of mappers, a reducer will be submitted to broker. 
 
 5th step in HW :
 *program_services : * 3 datacenters each for diff. mix of policies. policies are as follows
-                             * Division of servies:
-                             * SAAS - cloudlet config.
-                             * PAAS - cloudlet config + cloudlet scheduler policy
-                             * IAAS - DataCenter characteristics such as vm allocation policy.
-                             * FAAS - (code snippet) cloudlet length
-                             * 3 Datacenters and their services:
-                             * Datacenter 0 : for mix of services SAAS && FAAS.
-                             * Datacenter 1 : for mix of services PAAS && FAAS.
-                             * Datacenter 2 : for IAAS.
-                    * Takes input from user for few customizations like    
-                      1)cloudlet Scheduler 
-                      2)cloudlet configurations ( length,file size and pes count)
-                      3)Vm Allocation Policy.
+* Division of servies:
+* SAAS - cloudlet config.
+* PAAS - cloudlet config + cloudlet scheduler policy
+* IAAS - DataCenter characteristics such as vm allocation policy.
+* FAAS - (code snippet) cloudlet length
+* 3 Datacenters and their services:
+* Datacenter 0 : for mix of services SAAS && FAAS.
+* Datacenter 1 : for mix of services PAAS && FAAS.
+* Datacenter 2 : for IAAS.
+* Takes input from user for few customizations like    
+1)cloudlet Scheduler 2)cloudlet configurations ( length,file size and pes count) 3)Vm Allocation Policy.
                     * Based on the response received, user's cloudlets will be allocated to that respective Datacenter. 
 
 
