@@ -79,16 +79,13 @@ Two broker policies which differ by cloudlets(Mapper,Reeducer) execution. polici
 
 
 Cost Computation :   
-        For simulations "program_1 and program_2" (brokerPolicy1, brokerPolicy2): 
-                    * cost formula is given by cloudlet.getCostPerSec() *(cloudlet.getSubmissionDelay()
-                                                                           +cloudlet.getActualCpuTime()
-                                                                           +cloudlet.getWaitingTime()
-                                                                           +cloudlet.getDelay())+cloudlet.getResWastageCost();
-                     submissionDelay - cloudlets submission delay.
-                     Delay - if a reducer's associated mappers got executed on diff. hosts.
-                     ResWastageCost - if a reducer has less no. of associated mappers than usual MAP_RED_RATIO, then it involves a slight resource wastage cost. 
-       -
-       For simulations "program_services" (Step 5):
+For simulations "program_1 and program_2" (brokerPolicy1, brokerPolicy2): 
+* cost formula is given by cloudlet.getCostPerSec() *(cloudlet.getSubmissionDelay() +cloudlet.getActualCpuTime() +cloudlet.getWaitingTime()+cloudlet.getDelay())+cloudlet.getResWastageCost();
+submissionDelay - cloudlets submission delay.
+Delay - if a reducer's associated mappers got executed on diff. hosts.
+ResWastageCost - if a reducer has less no. of associated mappers than usual MAP_RED_RATIO, then it involves a slight resource wastage cost. 
+
+For simulations "program_services" (Step 5):
                     * cost formula is given by cloudlet.getCostPerSec() *(cloudlet.getSubmissionDelay() +cloudlet.getActualCpuTime()+cloudlet.getWaitingTime() )
                                                                           + cloudlet.getDatacenter().getCharacteristics().getCostPerSecond() * cloudlet.getUtilizationOfRam().                                                   
                     * Datacenter's cost per sec varies with service:
