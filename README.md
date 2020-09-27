@@ -92,9 +92,7 @@ For simulations "program_services" (Step 5):
                     Datacenter 0 (mix of services SAAS && FAAS) being the cheapest and
                     Datacenter 2 (for IAAS) being the costliest.
                     
-Analysis for program_1 and program_2:
-
-cost evaluated from 4 simulations with the existing config file, 
+Analysis for program_1 and program_2:cost evaluated from 4 simulations with the existing config file, 
 *total cost for program_1_spaceshared ( brokerpolicy1 ): Total cost: 882.9199999999985 wastage 17.0  delay 0.0
 *total cost for program_1_timeshared  ( brokerpolicy1 ): Total cost: 1076.210000000003 wastage 17.0 delay 0.0
 *total cost for program_2_spaceshared  ( brokerpolicy2 ): Total cost: 957.5999999999981 wastage 18.0 delay 4.0
